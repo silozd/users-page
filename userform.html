@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Users Page</title>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.usertab {
+  padding: 7px;
+  width: 100%;
+  background-color: #f1f1f1;
+}
+.userlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 50px;
+  padding: 30px;
+  left: 0px;
+  width: 40%;
+
+}
+
+.container {
+  position: fixed;
+  top: 50px;
+  padding: 15px;
+  background-color: white;
+}
+
+input[type=text], input[type=number] {
+
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: 1px solid #f1f1f1;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+h1 {
+  padding: 15px;
+  background-color: #f1f1f1;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  left: 0px;
+  width: 40%;
+
+}
+td, th {
+  border: 1px solid #f1f1f1;
+  text-align: left;
+  padding: 20px;
+  width: 40%;
+}
+
+tr:nth-child(even) {
+  background-color: #f1f1f1;
+  text-align: left;
+  padding: 20px;
+
+}
+</style>
+</head>
+<body>
+
+<form action="/action_page.php" style="
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 50%;
+  ">
+  <div class="container">
+    <h1>New User</h1>
+    <hr id="data">
+
+    <label for="username"><b>Username:</b></label>
+    <input type="text" name="username" id="username">
+    
+    <label for="disname"><b>Display Name:</b></label>
+    <input type="text" name="disname" id="disname">
+    
+    <label for="phone"><b>Phone:</b></label>
+    <input type="number" name="phone" id="phone">
+
+    <label for="email"><b>Email:</b></label>
+    <input type="text" name="email" id="email">
+    
+    <label for="roles"><b>User Roles:</b></label>
+     <input list="name" placeholder="Select user roles..."id="roles" style="width: 100%;
+                    padding: 10px;
+                    margin: 5px 0 22px 0;
+                    display: inline-block;
+                    border: 1px solid #f1f1f1;">
+     <datalist id="name"> 
+      <option value="Guest">
+      <option value="Admin">
+      <option value="SuperAdmin">
+      </datalist>
+    
+    <label for="enabled" style="cursor: pointer;" > Enabled: </label>
+    <input type="checkbox" id="enabled">
+    
+    </hr>
+  </div>
+</form>
+
+  <div class="usertab">
+    <button id="adduser" style=" cursor: pointer; padding: 7px; border:none; background-color: #c0ded9 ;"> + New User </button>
+
+    <input type="checkbox" id="hide">
+    <label for="hide" style="cursor: pointer;" > Hide Disabled User </label>
+    <button id="saveuser" style="position: fixed; right: 7px; cursor: pointer; padding: 7px; border:none; background-color: #c0ded9 ; "> Save User </button>
+    <script type="text/javascript">
+    var btnHi=document.getElementById("adduser");
+    btnHi.onclick=function(){
+      window.alert("Fill the New User form, please");
+    }</script>
+  </div>
+
+  <div class="userlist">
+    <table>
+      <thead>
+      <tr style="background-color: #c0ded9">
+        <th id="listing">ID</th>
+        <th id="username">User Name</th>
+        <th id="email">Email</th>
+        <th id="value">Enabled</th>
+      </tr>
+       <script>
+
+    let btnAdd = document.querySelector("saveuser");
+    let table = document.querySelector("userlist");
+ 
+    let username = document.querySelector('#username');
+    let email = document.querySelector('#email');
+    let listing = document.querySelector('#listing');
+     
+     
+    btnAdd.addEventListener() => {
+        let listing = listing.value;
+        let username = username.value;
+        let email = email.value;
+       
+     
+        let template = `
+                    <tr>
+                        <td>${listing}</td>
+                        <td>${username}</td>
+                        <td>${email}</td>
+                        
+                    </tr>`;
+     
+        table.innerHTML += template;
+    });
+    </script>
+      </thead>
+      <tbody>
+      <tr>
+        <td>1</td>
+        <td>AdminUser</td>
+        <td>admin@piworks.net</td>
+        <td>true</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Test User</td>
+        <td>testuser@piworks.net</td>
+        <td>true</td>
+      </tr>
+
+      </tbody>
+    </table>
+</div>
+    
+</body>
+</html>
